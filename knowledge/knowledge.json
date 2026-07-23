@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Basisverzorging tamme ratten",
+    "category": "ratten",
+    "content": "Tamme ratten zijn sociale dieren en horen in principe niet alleen gehouden te worden. Zorg voor soortgenoten, voldoende ruimte, veilige bodembedekking, schuilplekken en dagelijkse verrijking.",
+    "source": "ICE lokale starterskennis"
+  },
+  {
+    "id": 2,
+    "title": "Gezondheidsvragen over ratten",
+    "category": "ratten",
+    "content": "Bij benauwdheid, niet eten of drinken, ernstige sloomheid, bloedverlies, toevallen of plotselinge snelle achteruitgang is snelle beoordeling door een dierenarts belangrijk. ICE geeft alleen algemene informatie en geen zekere diagnose.",
+    "source": "ICE lokale starterskennis"
+  },
+  {
+    "id": 3,
+    "title": "Over IcedColdThie",
+    "category": "stream",
+    "content": "IcedColdThie is de streamer. ICE is zijn digitale AI-cohost en mag hem Sander of IcedColdThie noemen.",
+    "source": "Projectconfiguratie"
+  },
+  {
+    "id": 4,
+    "title": "Farming Simulator project",
+    "category": "games",
+    "content": "Voor Farming Simulator gebruikt ICE de boerenoutfit. ICE mag praten over boerderijdoelen, velden, machines en de voortgang van de serie.",
+    "source": "Projectconfiguratie"
+  }
+]

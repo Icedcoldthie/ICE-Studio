@@ -1,0 +1,106 @@
+:root {
+    --bg: #08111f;
+    --panel: #111c2e;
+    --panel2: #18263a;
+    --line: #2b4059;
+    --text: #ecf7ff;
+    --muted: #98aec2;
+    --ice: #5ed8ff;
+    --ice2: #a8efff;
+    --good: #62e6a7;
+    --bad: #ff7b8a;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: radial-gradient(circle at top, #15304c 0, var(--bg) 42%);
+    color: var(--text);
+}
+button, input, textarea, select { font: inherit; }
+button {
+    border: 1px solid var(--line);
+    background: var(--panel2);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+button:hover { border-color: var(--ice); }
+button.primary {
+    background: var(--ice);
+    color: #04101b;
+    border-color: var(--ice);
+    font-weight: 700;
+}
+.layout { min-height: 100vh; display: grid; grid-template-columns: 240px 1fr; }
+.sidebar {
+    border-right: 1px solid var(--line);
+    background: rgba(6, 14, 25, .94);
+    padding: 18px;
+}
+.brand { display: flex; gap: 12px; align-items: center; margin-bottom: 28px; }
+.brand small { display: block; color: var(--muted); margin-top: 3px; }
+.logo {
+    width: 54px; height: 54px; display: grid; place-items: center;
+    border-radius: 16px; color: #04101b; font-weight: 900;
+    background: linear-gradient(135deg, white, var(--ice));
+}
+.nav { display: block; width: 100%; text-align: left; margin: 6px 0; background: transparent; }
+.nav.active { background: var(--ice); color: #04101b; }
+.content { padding: 28px; max-width: 1200px; width: 100%; margin: 0 auto; }
+.page { display: none; }
+.page.active { display: block; }
+h1 { margin-top: 0; }
+.panel {
+    background: rgba(17, 28, 46, .92);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 16px 0;
+}
+.status-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.status-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+}
+.status-card span { color: var(--muted); display: block; }
+.status-card strong { display: block; margin-top: 8px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.stats div { background: var(--panel2); padding: 16px; border-radius: 12px; }
+.stats strong { display: block; font-size: 28px; color: var(--ice2); }
+.stats span { color: var(--muted); }
+.progress { height: 12px; border-radius: 999px; background: #26364a; overflow: hidden; margin: 12px 0; }
+.progress span { display: block; height: 100%; background: var(--ice); }
+label { display: block; margin: 12px 0; color: var(--muted); }
+input, textarea, select {
+    width: 100%; margin-top: 6px; padding: 11px;
+    background: #091322; color: var(--text);
+    border: 1px solid var(--line); border-radius: 10px;
+}
+.field-row { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; align-items: end; }
+.chat-window { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.message { border-radius: 14px; padding: 14px; border: 1px solid var(--line); }
+.message.user { background: #16263b; }
+.message.ice { background: #102d3a; }
+.message small { display: block; color: var(--muted); margin-top: 8px; }
+.game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.game-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.game-card img { width: 100%; height: 110px; object-fit: cover; background: #0a1422; }
+.game-card div { padding: 12px; }
+.history-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin: 12px 0; }
+.history-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.good { color: var(--good); }
+.bad { color: var(--bad); }
+@media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
+    .status-grid, .game-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+    .content { padding: 16px; }
+    .status-grid, .game-grid, .stats, .field-row { grid-template-columns: 1fr; }
+}
+.link-button{display:inline-block;text-decoration:none;border:1px solid var(--ice);color:var(--ice);padding:10px 14px;border-radius:10px}.check-row{display:flex;align-items:center;gap:10px}.check-row input{width:auto;margin:0}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ICE Studio</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">ICE</div>
+            <div>
+                <strong>ICE Studio 1.1</strong>
+                <small>Intelligent Cohost Engine</small>
+            </div>
+        </div>
+        <button class="nav active" data-page="overview">Overzicht</button>
+        <button class="nav" data-page="chat">Chat testen</button>
+        <button class="nav" data-page="personality">Persoonlijkheid</button>
+        <button class="nav" data-page="knowledge">Kennisbank</button>
+        <button class="nav" data-page="games">Game database</button>
+        <button class="nav" data-page="learning">Learning Center</button>
+        <button class="nav" data-page="avatar">Avatar & stem</button>
+        <button class="nav" data-page="connections">Verbindingen</button>
+    </aside>
+
+    <main class="content">
+        <section class="page active" id="page-overview">
+            <h1>Overzicht</h1>
+            <div class="status-grid">
+                <article class="status-card"><span>Ollama</span><strong id="ollamaStatus">Controleren…</strong></article>
+                <article class="status-card"><span>Streamer.bot</span><strong id="streamerbotStatus">Controleren…</strong></article>
+                <article class="status-card"><span>Model</span><strong id="modelStatus">qwen3:4b</strong></article>
+                <article class="status-card"><span>Outfit</span><strong id="outfitStatus">Boer</strong></article>
+            </div>
+            <div class="panel">
+                <h2>Statistieken</h2>
+                <div class="stats">
+                    <div><strong id="statInteractions">0</strong><span>Gesprekken</span></div>
+                    <div><strong id="statViewers">0</strong><span>Kijkers</span></div>
+                    <div><strong id="statApproved">0</strong><span>Goedgekeurd</span></div>
+                </div>
+            </div>
+            <div class="panel">
+                <h2>Projectstatus</h2>
+                <p>ICE Studio 1.1 – Living Farmer Cohost</p>
+                <div class="progress"><span style="width:55%"></span></div>
+                <small>AI-brein, dashboard, geheugen, kennisbank, Steam en Streamer.bot zijn opgenomen in deze versie.</small>
+            </div>
+        </section>
+
+        <section class="page" id="page-chat">
+            <h1>Chat testen</h1>
+            <div class="panel">
+                <div class="field-row">
+                    <label>Gebruikersnaam<input id="chatUsername" value="Sander"></label>
+                    <label>Bericht<input id="chatMessage" placeholder="Vraag iets aan ICE"></label>
+                </div>
+                <button id="sendChat" class="primary">Stuur naar ICE</button>
+            </div>
+            <div class="chat-window" id="chatWindow"></div>
+        </section>
+
+        <section class="page" id="page-personality">
+            <h1>Persoonlijkheid</h1>
+            <div class="panel">
+                <label>Antwoordstijl
+                    <select id="responseStyle">
+                        <option value="auto">Automatisch</option>
+                        <option value="short">Kort</option>
+                        <option value="normal">Normaal</option>
+                        <option value="detailed">Uitgebreid</option>
+                    </select>
+                </label>
+                <label>Reactiemodus
+                    <select id="replyMode">
+                        <option value="smart">Slimme co-hostmodus</option>
+                        <option value="all">Alles beantwoorden</option>
+                    </select>
+                </label>
+                <label>Humor <input id="humor" type="range" min="0" max="100" value="70"></label>
+                <label>Sarcasme <input id="sarcasm" type="range" min="0" max="100" value="35"></label>
+                <label>Energie <input id="energy" type="range" min="0" max="100" value="65"></label>
+                <label>Vriendelijkheid <input id="friendly" type="range" min="0" max="100" value="85"></label>
+                <button id="savePersonality" class="primary">Instellingen opslaan</button>
+            </div>
+        </section>
+
+        <section class="page" id="page-knowledge">
+            <h1>Kennisbank</h1>
+            <div class="panel">
+                <div class="field-row">
+                    <label>Titel<input id="knowledgeTitle"></label>
+                    <label>Categorie<input id="knowledgeCategory" value="ratten"></label>
+                </div>
+                <label>Informatie<textarea id="knowledgeContent" rows="6"></textarea></label>
+                <label>Bron<input id="knowledgeSource" value="handmatig"></label>
+                <button id="addKnowledge" class="primary">Toevoegen</button>
+            </div>
+            <div class="panel">
+                <label>Zoeken<input id="knowledgeSearch" placeholder="Bijvoorbeeld: voeding ratten"></label>
+                <div id="knowledgeResults"></div>
+            </div>
+        </section>
+
+        <section class="page" id="page-games">
+            <h1>Game database</h1>
+            <div class="panel">
+                <div class="field-row">
+                    <label>Zoek game<input id="gameQuery" placeholder="Farming Simulator 25"></label>
+                    <button id="searchGames" class="primary">Zoeken</button>
+                </div>
+            </div>
+            <div id="gameResults" class="game-grid"></div>
+        </section>
+
+        <section class="page" id="page-learning">
+            <h1>Learning Center</h1>
+            <div id="historyList"></div>
+        </section>
+
+
+        <section class="page" id="page-avatar">
+            <h1>Avatar & stem</h1>
+            <div class="panel">
+                <h2>OBS Browser Source</h2>
+                <p>Voeg deze URL als Browser Source toe in OBS. Gebruik bijvoorbeeld 800 × 1000 en zet de achtergrond transparant.</p>
+                <label>Avatar-URL<input id="avatarUrl" readonly value="http://127.0.0.1:8765/avatar"></label>
+                <a class="link-button" href="/avatar" target="_blank">Open avatarvoorbeeld</a>
+            </div>
+            <div class="panel">
+                <h2>Avatar testen</h2>
+                <label>Testtekst<textarea id="avatarTestText" rows="4">Hallo! Ik ben ICE, je digitale cohost. Vandaag help ik mee op de boerderij.</textarea></label>
+                <label>Emotie
+                    <select id="avatarEmotion">
+                        <option value="neutral">Neutraal</option>
+                        <option value="happy">Blij</option>
+                        <option value="laughing">Lachen</option>
+                        <option value="surprised">Verrast</option>
+                        <option value="thinking">Denken</option>
+                        <option value="excited">Enthousiast</option>
+                        <option value="concerned">Bezorgd</option>
+                        <option value="annoyed">Geïrriteerd</option>
+                    </select>
+                </label>
+                <button id="testAvatar" class="primary">Test avatar en stem</button>
+            </div>
+            <div class="panel">
+                <h2>Steminstellingen</h2>
+                <label class="check-row"><input id="voiceEnabled" type="checkbox"> Lokale Windows-stem inschakelen</label>
+                <label>Stemnaam<input id="voiceName" placeholder="Leeg = standaard Windows-stem"></label>
+                <label>Spreeksnelheid <input id="voiceRate" type="range" min="-10" max="10" value="0"></label>
+                <label>Volume <input id="voiceVolume" type="range" min="0" max="100" value="100"></label>
+                <label>Outfit
+                    <select id="avatarOutfit">
+                        <option value="farmer">Boer</option>
+                    </select>
+                </label>
+                <button id="saveAvatarSettings" class="primary">Avatarinstellingen opslaan</button>
+            </div>
+        </section>
+
+        <section class="page" id="page-connections">
+            <h1>Verbindingen</h1>
+            <div class="panel">
+                <label>Ollama-model<input id="ollamaModel" value="qwen3:4b"></label>
+                <label>Streamer.bot WebSocket<input id="streamerbotWs" value="ws://127.0.0.1:8080/"></label>
+                <label>Streamer.bot actie<input id="streamerbotAction" value="ICE - Send Chat"></label>
+                <label>Botgebruikersnaam<input id="botUsername" placeholder="Optioneel"></label>
+                <button id="saveConnections" class="primary">Opslaan</button>
+                <button id="reconnectStreamerbot">Opnieuw verbinden</button>
+            </div>
+        </section>
+    </main>
+</div>
+<script>
+window.ICE_CONFIG = {{ config | tojson }};
+</script>
+<script src="/static/app.js"></script>
+</body>
+</html>

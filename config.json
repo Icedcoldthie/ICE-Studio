@@ -1,0 +1,32 @@
+{
+  "ollama_model": "qwen3:4b",
+  "ollama_url": "http://127.0.0.1:11434/api/chat",
+  "streamerbot_ws": "ws://127.0.0.1:8080/",
+  "streamerbot_action": "ICE - Send Chat",
+  "streamer_name": "IcedColdThie",
+  "bot_username": "",
+  "language_mode": "auto",
+  "response_style": "auto",
+  "personality": {
+    "friendly": 85,
+    "humor": 70,
+    "sarcasm": 35,
+    "energy": 65
+  },
+  "reply_mode": "smart",
+  "reply_chance": 0.35,
+  "cooldown_seconds": 8,
+  "max_messages_per_minute": 8,
+  "ignore_commands": true,
+  "split_long_twitch_messages": true,
+  "speak_enabled": false,
+  "avatar_outfit": "farmer",
+  "version": "1.1",
+  "voice_enabled": false,
+  "voice_name": "",
+  "voice_rate": 0,
+  "voice_volume": 100,
+  "avatar_visible": true,
+  "avatar_show_captions": true,
+  "avatar_scale": 100
+}
